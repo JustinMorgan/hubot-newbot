@@ -30,7 +30,7 @@ class NewBot
     @name = clean name
     @regex = regex @pattern, "i"
   get: ->
-    @func ?= coffee(@code)()
+    @func ?= coffee(@code)
   attach: (robot, style = "newbot") ->
     @get() #make sure it compiles
     if newbots[@name]? 
