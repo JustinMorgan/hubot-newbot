@@ -6,7 +6,6 @@ A Hubot script that spawns new Hubot scripts on the fly. Yo dawg.
 
 - Add `hubot-newbot` to your Hubot's `package.json`
 - Add `hubot-newbot` to your Hubot's `external-scripts.json`
-- Add `hubot-parsebot` to your Hubot's `external-scripts.json`
 - Run `npm install`
 
 
