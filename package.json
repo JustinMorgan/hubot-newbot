@@ -17,14 +17,14 @@
     "listenbot",
     "parsebot"
   ],
-  "author": "Justin Morgan",
+  "author": "Justin Morgan <justinmorgan.github@gmail.com> (https://github.com/JustinMorgan)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/JustinMorgan/hubot-newbot/issues"
   },
   "homepage": "https://github.com/JustinMorgan/hubot-newbot",
   "dependencies": {
-    "swiss-army-eval": "^0.2.4"
+    "swiss-army-eval": "^0.2.5"
   },
   "devDependencies": {}
 }
