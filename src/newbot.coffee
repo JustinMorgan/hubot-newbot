@@ -16,30 +16,39 @@
 # Author:
 #   JustinMorgan@GitHub
 #
-compile = require "swiss-army-eval"
-coffee = compile.bind null, "CoffeeScript"
-regex = compile.bind null, "regex"
+sae = require "swiss-army-eval"
+coffee = sae.bind null, "CoffeeScript"
+regex = sae.bind null, "regex"
 
 clean = (name) -> name?.toLowerCase?().trim()
 
-#todo: test persistence behavior, consider using robot.brain.data
+# todo: test persistence behavior, consider using robot.brain.data
 newbots = {}
   
-class NewBot
+class NewBot    
+  compile = (code) ->
+    obj = coffee(code) 
+    if typeof obj is "function"
+      obj
+    else 
+      (msg) -> msg.send obj
+      
   constructor: (name, @pattern, @code) ->
     @name = clean name
     @regex = regex @pattern, "i"
-  get: ->
-    @func ?= coffee(@code)
-  attach: (robot, style = "newbot") ->
-    @get() #make sure it compiles
+    @func = compile @code 
+    
+  attach: (robot, botType) ->
     if newbots[@name]? 
       throw "I've already got a bot called #{@name}!"
-    newbots[@name] = this
-    botType = {newbot:"respond", listenbot:"hear"}[style]
-    robot[botType] @regex, (msg) => @get?()?(msg)
+    else 
+      newbots[@name] = this    
+    
+    # We wrap @func in another function so we can easily kill it from the @destroy method
+    robot[botType] @regex, (msg) => @func(msg)
+    
   destroy: ->
-    @get = ->
+    @func = ->
     delete newbots[@name]
 
 
@@ -51,8 +60,9 @@ module.exports = (robot) ->
     [style, name, pattern, code] = msg.match[1..]
     
     try
+      botType = {newbot:"respond", listenbot:"hear"}[style]
       bot = new NewBot name, pattern, code
-      bot.attach robot, style
+      bot.attach robot, botType
       msg.send "i maked u a #{bot.name}!"
     catch e
       msg.send e
