@@ -73,7 +73,12 @@ module.exports = (robot) ->
     name = clean msg.match[1]
     bot = newbots[name]
     if bot?
-      result = if msg.match[2] then (coffee bot.code) else bot.code
-      msg.send "#{name}: /#{bot.pattern}/i, #{result}"
+      result = """
+        Name: #{name}
+        Pattern: /#{bot.pattern}/i, 
+        Code: #{bot.code}"""
+      if msg.match[2] 
+        result += "\nCompiled JS: #{coffee bot.code}"
+      msg.send result
     else
       msg.send "#{name}? Never heard of it."
