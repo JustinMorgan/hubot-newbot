@@ -6,12 +6,12 @@
 #   swiss-army-eval
 #
 # Commands:
-#   newbot FooBot /foo/i (msg) -> msg.send "bar" - Creates a NewBot named FooBot that responds "bar" to the command "hubot foo".
-#   listenbot FooBot /foo/i (msg) -> msg.send "bar" - Creates a NewBot named FooBot that sends "bar" whenever a message includes "foo".
-#   killbot FooBot -  Deletes FooBot by name.
-#   list newbots -  Lists names of running newbots.
-#   showbot FooBot - Shows the regex and CoffeeScript body of FooBot.
-#   showbot FooBot --debug - Debug mode: Shows the regex and compiled JavaScript for FooBot.
+#   hubot newbot FooBot /foo/i (msg) -> msg.send "bar" - Creates a NewBot named FooBot that responds "bar" to the command "hubot foo".
+#   hubot listenbot FooBot /foo/i (msg) -> msg.send "bar" - Creates a NewBot named FooBot that sends "bar" whenever a message includes "foo".
+#   hubot killbot FooBot -  Deletes FooBot by name.
+#   hubot list newbots -  Lists names of running newbots.
+#   hubot showbot FooBot - Shows the regex and CoffeeScript body of FooBot.
+#   hubot showbot FooBot --debug - Debug mode: Shows the regex and compiled JavaScript for FooBot.
 #
 # Author:
 #   JustinMorgan@GitHub
