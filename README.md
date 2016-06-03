@@ -4,6 +4,11 @@
 
 A Hubot script that spawns new Hubot scripts on the fly. 
 
+## Installation
+
+1. Run `npm install --save hubot-newbot` (the `--save` is optional).
+2. Add `hubot-newbot` to your Hubot's `external-scripts.json`.
+
 ## NewBot anatomy
 
 NewBots are named, temporary, in-memory mini-bots that work just like a permanent Hubot script. You create them with three ingredients:
@@ -17,11 +22,6 @@ They last until you kill them or your Hubot app restarts; then they're gone fore
 ## NewBots and ListenBots
 
 There are two kinds of bots you can create: standard NewBots and ListenBots. Standard NewBots respond only to direct commands, so they'll only go off when a chat message **starts** with `hubot <command>`. ListenBots look for keywords embedded anywhere in a chat message.
-
-## Installation
-
-1. Run `npm install --save hubot-newbot` (the `--save` is optional).
-2. Add `hubot-newbot` to your Hubot's `external-scripts.json`.
 
 ## Hubot chat commands
 
