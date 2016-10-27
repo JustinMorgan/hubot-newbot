@@ -1,8 +1,8 @@
 # hubot-newbot
 
-![Yo dawg.][yodawg]
-
 A Hubot script that spawns new Hubot scripts on the fly. 
+
+![Yo dawg.][yodawg]
 
 ## Installation
 
@@ -37,7 +37,8 @@ hubot showbot FooBot --debug                          # Debug mode: Shows the re
 
 ## About
 
-- GitHub project: https://github.com/JustinMorgan/hubot-newbot
+- GitHub: https://github.com/JustinMorgan/hubot-newbot
+- NPM: https://www.npmjs.com/package/hubot-newbot
 - Author: Justin Morgan (https://github.com/JustinMorgan)
 - License: NewBot is licensed under the [MIT][mit] license.
 
